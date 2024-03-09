@@ -403,6 +403,7 @@
             btnSil.TabIndex = 17;
             btnSil.Text = "Sil";
             btnSil.UseVisualStyleBackColor = false;
+            btnSil.Click += btnSil_Click;
             // 
             // btnGuncelle
             // 

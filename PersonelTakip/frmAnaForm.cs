@@ -5,7 +5,7 @@ namespace PersonelTakip
     public partial class frmAnaForm : Form
     {
         int siradakiId = 1;
-        Personel duzenlenenPersonel=null;
+        Personel duzenlenenPersonel = null;
 
         public frmAnaForm()
         {
@@ -19,7 +19,12 @@ namespace PersonelTakip
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            Personel p = new Personel(siradakiId);
+            Personel p;
+
+            if (duzenlenenPersonel == null)//yeni kayýt
+                p = new Personel(siradakiId);//**burasý yeni personel oluþturur
+            else
+                p = duzenlenenPersonel;
 
             p.Ad = txtAd.Text;
             p.Soyad = txtSoyad.Text;
@@ -34,11 +39,17 @@ namespace PersonelTakip
             p.UstalikBelgesiDurumu = rdUstaEvet.Checked;
 
             //oluþturduðum personeli liste kutusuna ekle
-            lbPersoneller.Items.Add(p);
+            if (duzenlenenPersonel == null)
+            {
+                lbPersoneller.Items.Add(p);//**yeni personeli ekler
+                siradakiId++;//yalnýzca personel eklendiðinde artýr
+            }
+            else
+                lbPersoneller.Items[lbPersoneller.SelectedIndex] = p; //var olan indekse ata
 
             lblPersonelSayisi.Text = $"{lbPersoneller.Items.Count} Kiþi";
-            
-            siradakiId++;
+
+
 
         }
 
@@ -50,7 +61,7 @@ namespace PersonelTakip
         }
 
         void PersonelGoster(Personel p)
-        {   
+        {
             //ileriki gunceleme vb durumlar icin bunu sakla
             duzenlenenPersonel = p;
 
@@ -58,6 +69,8 @@ namespace PersonelTakip
             {
 
                 lblKayitBilgi.Text = "Düzenlenen Kayýt";
+                btnGuncelle.Text = "Güncelle";
+
                 txtAd.Text = p.Ad;
                 txtSoyad.Text = p.Soyad;
                 txtTel.Text = p.Tel;
@@ -78,6 +91,8 @@ namespace PersonelTakip
             else
             {
                 lblKayitBilgi.Text = "Yeni Kayýt";
+                btnGuncelle.Text = "Ekle";
+
                 txtAd.Text = "";
                 txtSoyad.Text = "";
                 txtTel.Text = "";
@@ -103,10 +118,22 @@ namespace PersonelTakip
             //Hangi eleman seçili
             int index = lbPersoneller.SelectedIndex;
 
-            //liste kutusundan personeli al
-            Personel k = (Personel)lbPersoneller.Items[index];
+            if (lbPersoneller.SelectedIndex >= 0)
+            {
+                //liste kutusundan personeli al
+                Personel k = (Personel)lbPersoneller.Items[index];
 
-            PersonelGoster(k);
+                PersonelGoster(k);
+            }
+            else
+            {
+                PersonelGoster(null);
+            }
+
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
 
         }
     }
