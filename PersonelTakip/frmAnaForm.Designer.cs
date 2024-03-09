@@ -64,6 +64,7 @@
             btnKaydet = new Button();
             txtTel = new MaskedTextBox();
             lblPersonelSayisi = new Label();
+            lblKayitBilgi = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numCocukSayisi).BeginInit();
@@ -449,10 +450,21 @@
             lblPersonelSayisi.TabIndex = 17;
             lblPersonelSayisi.Text = "0 Personel";
             // 
+            // lblKayitBilgi
+            // 
+            lblKayitBilgi.AutoSize = true;
+            lblKayitBilgi.ForeColor = Color.Tomato;
+            lblKayitBilgi.Location = new Point(147, 141);
+            lblKayitBilgi.Name = "lblKayitBilgi";
+            lblKayitBilgi.Size = new Size(76, 28);
+            lblKayitBilgi.TabIndex = 19;
+            lblKayitBilgi.Text = "label12";
+            // 
             // frmAnaForm
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(887, 905);
+            Controls.Add(lblKayitBilgi);
             Controls.Add(lblPersonelSayisi);
             Controls.Add(txtTel);
             Controls.Add(btnKaydet);
@@ -537,5 +549,6 @@
         private Button btnKaydet;
         private MaskedTextBox txtTel;
         private Label lblPersonelSayisi;
+        private Label lblKayitBilgi;
     }
 }

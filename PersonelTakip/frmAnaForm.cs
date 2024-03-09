@@ -5,6 +5,8 @@ namespace PersonelTakip
     public partial class frmAnaForm : Form
     {
         int siradakiId = 1;
+        Personel duzenlenenPersonel=null;
+
         public frmAnaForm()
         {
             InitializeComponent();
@@ -40,8 +42,59 @@ namespace PersonelTakip
 
         private void btnYeni_Click(object sender, EventArgs e)
         {
+            //eger null personel gonderirsek form temizlenir
+            PersonelGoster(null);
 
         }
+
+        void PersonelGoster(Personel p)
+        {   
+            //ileriki gunceleme vb durumlar icin bunu sakla
+            duzenlenenPersonel = p;
+
+            if (p != null)
+            {
+
+                lblKayitBilgi.Text = "Düzenlenen Kayýt";
+                txtAd.Text = p.Ad;
+                txtSoyad.Text = p.Soyad;
+                txtTel.Text = p.Tel;
+                txtAdres.Text = p.Adres;
+
+                cbBirim.SelectedIndex = p.BirimId;
+                dtIseGirisTarihi.Value = p.IseGiris;
+                numCocukSayisi.Value = p.CocukSayisi;
+                chkAskerlik.Checked = p.AskerlikDurumu;
+                chkYabanciDil.Checked = p.YabanciDilDurumu;
+
+                rdISGEvet.Checked = p.ISGEgitimiDurumu;
+                rdISGHayir.Checked = !p.ISGEgitimiDurumu;
+
+                rdUstaEvet.Checked = p.UstalikBelgesiDurumu;
+                rdUstaHayir.Checked = !p.UstalikBelgesiDurumu;
+            }
+            else
+            {
+                lblKayitBilgi.Text = "Yeni Kayýt";
+                txtAd.Text = "";
+                txtSoyad.Text = "";
+                txtTel.Text = "";
+                txtAdres.Text = "";
+
+                cbBirim.SelectedIndex = -1;
+                dtIseGirisTarihi.Value = DateTime.Now;
+                numCocukSayisi.Value = 0;
+                chkAskerlik.Checked = false;
+                chkYabanciDil.Checked = false;
+
+                rdISGEvet.Checked = false;
+                rdISGHayir.Checked = false;
+                rdUstaEvet.Checked = false;
+                rdUstaHayir.Checked = false;
+            }
+
+        }
+
 
         private void lbPersoneller_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -50,22 +103,7 @@ namespace PersonelTakip
             //liste kutusundan personeli al
             Personel p = (Personel)lbPersoneller.Items[index];
 
-            txtAd.Text = p.Ad;
-            txtSoyad.Text = p.Soyad;
-            txtTel.Text = p.Tel;
-            txtAdres.Text = p.Adres;
-
-            cbBirim.SelectedIndex = p.BirimId;
-            dtIseGirisTarihi.Value = p.IseGiris;
-            numCocukSayisi.Value = p.CocukSayisi;
-            chkAskerlik.Checked = p.AskerlikDurumu;
-            chkYabanciDil.Checked = p.YabanciDilDurumu;
-
-            rdISGEvet.Checked = p.ISGEgitimiDurumu;
-            rdISGHayir.Checked = !p.ISGEgitimiDurumu;
-
-            rdUstaEvet.Checked = p.UstalikBelgesiDurumu;
-            rdUstaHayir.Checked = !p.UstalikBelgesiDurumu;
+            PersonelGoster(p);
 
         }
     }
