@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            button1 = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             label2 = new Label();
@@ -65,16 +67,20 @@
             txtTel = new MaskedTextBox();
             lblPersonelSayisi = new Label();
             lblKayitBilgi = new Label();
+            epPersonelFormu = new ErrorProvider(components);
+            timerSaat = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numCocukSayisi).BeginInit();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)epPersonelFormu).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(64, 64, 64);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
@@ -83,6 +89,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(887, 134);
             panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(754, 47);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 62);
+            button1.TabIndex = 2;
+            button1.Text = "Sallan";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
@@ -126,6 +142,7 @@
             txtAd.Size = new Size(290, 34);
             txtAd.TabIndex = 1;
             txtAd.TextChanged += textBox1_TextChanged;
+            txtAd.Validating += txtAd_Validating;
             // 
             // label3
             // 
@@ -145,6 +162,7 @@
             txtSoyad.Size = new Size(290, 34);
             txtSoyad.TabIndex = 2;
             txtSoyad.TextChanged += textBox1_TextChanged;
+            txtSoyad.Validating += txtSoyad_Validating;
             // 
             // label4
             // 
@@ -433,6 +451,7 @@
             btnKaydet.TabIndex = 15;
             btnKaydet.Text = "Kaydet";
             btnKaydet.UseVisualStyleBackColor = false;
+            btnKaydet.Click += btnKaydet_Click;
             // 
             // txtTel
             // 
@@ -447,9 +466,9 @@
             lblPersonelSayisi.ForeColor = Color.Tomato;
             lblPersonelSayisi.Location = new Point(515, 770);
             lblPersonelSayisi.Name = "lblPersonelSayisi";
-            lblPersonelSayisi.Size = new Size(101, 28);
+            lblPersonelSayisi.Size = new Size(58, 28);
             lblPersonelSayisi.TabIndex = 17;
-            lblPersonelSayisi.Text = "0 Personel";
+            lblPersonelSayisi.Text = "0 Kişi";
             // 
             // lblKayitBilgi
             // 
@@ -461,9 +480,19 @@
             lblKayitBilgi.TabIndex = 19;
             lblKayitBilgi.Text = "Yeni Kayıt";
             // 
+            // epPersonelFormu
+            // 
+            epPersonelFormu.ContainerControl = this;
+            // 
+            // timerSaat
+            // 
+            timerSaat.Interval = 10;
+            timerSaat.Tick += timerSaat_Tick;
+            // 
             // frmAnaForm
             // 
             AutoScaleMode = AutoScaleMode.None;
+            AutoValidate = AutoValidate.EnableAllowFocusChange;
             ClientSize = new Size(887, 905);
             Controls.Add(lblKayitBilgi);
             Controls.Add(lblPersonelSayisi);
@@ -500,6 +529,7 @@
             Margin = new Padding(4, 6, 4, 6);
             Name = "frmAnaForm";
             Text = "Form1";
+            Load += frmAnaForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -508,6 +538,7 @@
             panel4.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)epPersonelFormu).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -551,5 +582,8 @@
         private MaskedTextBox txtTel;
         private Label lblPersonelSayisi;
         private Label lblKayitBilgi;
+        private ErrorProvider epPersonelFormu;
+        private System.Windows.Forms.Timer timerSaat;
+        private Button button1;
     }
 }
