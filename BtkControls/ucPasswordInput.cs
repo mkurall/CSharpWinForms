@@ -24,7 +24,7 @@ namespace BtkControls
             {
                 passwordIsShowing = value;
 
-                if (passwordIsShowing)
+                if (!passwordIsShowing)
                     txtInput.PasswordChar = '●';
                 else
                     txtInput.PasswordChar = '\0';

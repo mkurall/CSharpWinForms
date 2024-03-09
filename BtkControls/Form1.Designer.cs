@@ -30,31 +30,44 @@
         {
             ucPasswordInput1 = new ucPasswordInput();
             ucPasswordInput2 = new ucPasswordInput();
+            ıosStyleCheck1 = new IOSStyleCheck();
             SuspendLayout();
             // 
             // ucPasswordInput1
             // 
             ucPasswordInput1.BackColor = Color.Red;
-            ucPasswordInput1.Location = new Point(484, 34);
+            ucPasswordInput1.Location = new Point(26, 24);
             ucPasswordInput1.Name = "ucPasswordInput1";
             ucPasswordInput1.Padding = new Padding(1);
+            ucPasswordInput1.PasswordIsShowing = false;
             ucPasswordInput1.Size = new Size(263, 38);
             ucPasswordInput1.TabIndex = 0;
             // 
             // ucPasswordInput2
             // 
             ucPasswordInput2.BackColor = Color.Red;
-            ucPasswordInput2.Location = new Point(56, 182);
+            ucPasswordInput2.Location = new Point(26, 80);
             ucPasswordInput2.Name = "ucPasswordInput2";
             ucPasswordInput2.Padding = new Padding(1);
-            ucPasswordInput2.Size = new Size(349, 38);
+            ucPasswordInput2.PasswordIsShowing = false;
+            ucPasswordInput2.Size = new Size(263, 38);
             ucPasswordInput2.TabIndex = 1;
+            // 
+            // ıosStyleCheck1
+            // 
+            ıosStyleCheck1.Checked = true;
+            ıosStyleCheck1.Location = new Point(458, 56);
+            ıosStyleCheck1.Name = "ıosStyleCheck1";
+            ıosStyleCheck1.Size = new Size(73, 36);
+            ıosStyleCheck1.TabIndex = 2;
+            ıosStyleCheck1.Text = "ıosStyleCheck1";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(ıosStyleCheck1);
             Controls.Add(ucPasswordInput2);
             Controls.Add(ucPasswordInput1);
             Name = "Form1";
@@ -66,5 +79,6 @@
 
         private ucPasswordInput ucPasswordInput1;
         private ucPasswordInput ucPasswordInput2;
+        private IOSStyleCheck ıosStyleCheck1;
     }
 }
