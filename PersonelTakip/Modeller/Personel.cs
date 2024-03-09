@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonelTakip.Modeller
 {
-    public class Personel
+    public class Personel : object
     {
         private int cocukSayisi;
         public int Id { get; private set; }

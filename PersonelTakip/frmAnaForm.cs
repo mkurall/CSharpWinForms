@@ -42,5 +42,31 @@ namespace PersonelTakip
         {
 
         }
+
+        private void lbPersoneller_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = lbPersoneller.SelectedIndex;
+
+            //liste kutusundan personeli al
+            Personel p = (Personel)lbPersoneller.Items[index];
+
+            txtAd.Text = p.Ad;
+            txtSoyad.Text = p.Soyad;
+            txtTel.Text = p.Tel;
+            txtAdres.Text = p.Adres;
+
+            cbBirim.SelectedIndex = p.BirimId;
+            dtIseGirisTarihi.Value = p.IseGiris;
+            numCocukSayisi.Value = p.CocukSayisi;
+            chkAskerlik.Checked = p.AskerlikDurumu;
+            chkYabanciDil.Checked = p.YabanciDilDurumu;
+
+            rdISGEvet.Checked = p.ISGEgitimiDurumu;
+            rdISGHayir.Checked = !p.ISGEgitimiDurumu;
+
+            rdUstaEvet.Checked = p.UstalikBelgesiDurumu;
+            rdUstaHayir.Checked = !p.UstalikBelgesiDurumu;
+
+        }
     }
 }

@@ -372,6 +372,7 @@
             lbPersoneller.Name = "lbPersoneller";
             lbPersoneller.Size = new Size(361, 564);
             lbPersoneller.TabIndex = 18;
+            lbPersoneller.SelectedIndexChanged += lbPersoneller_SelectedIndexChanged;
             // 
             // btnYeni
             // 
