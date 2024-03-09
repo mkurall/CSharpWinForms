@@ -23,21 +23,29 @@ namespace BtkControls
         
         }
 
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            Checked = !Checked;
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-           
-            e.Graphics.FillEllipse(new SolidBrush(Color.Tomato), 
+
+            Color checkedColor = _checked ? Color.Tomato : Color.Silver;
+
+
+            e.Graphics.FillEllipse(new SolidBrush(checkedColor), 
                         new Rectangle(0,0,Height-1, Height-1));
 
-            e.Graphics.FillEllipse(new SolidBrush(Color.Tomato),
+            e.Graphics.FillEllipse(new SolidBrush(checkedColor),
                         new Rectangle(Width - Height-1, 0,  Height-1, Height-1));
-
-            e.Graphics.FillRectangle(new SolidBrush(Color.Tomato),
+       
+            e.Graphics.FillRectangle(new SolidBrush(checkedColor),
                 new Rectangle(Height/2, 0, Width - 1 - Height, Height-1));
 
 
-            if (_checked)
+            if (!_checked)
             {
                 e.Graphics.FillEllipse(new SolidBrush(Color.White),
                             new Rectangle(1, 1, Height - 2, Height - 2));
