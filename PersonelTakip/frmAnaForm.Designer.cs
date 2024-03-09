@@ -386,6 +386,7 @@
             btnYeni.TabIndex = 16;
             btnYeni.Text = "Yeni Kayıt";
             btnYeni.UseVisualStyleBackColor = false;
+            btnYeni.Click += btnYeni_Click;
             // 
             // btnSil
             // 
@@ -414,6 +415,7 @@
             btnGuncelle.TabIndex = 14;
             btnGuncelle.Text = "Güncelle";
             btnGuncelle.UseVisualStyleBackColor = false;
+            btnGuncelle.Click += btnGuncelle_Click;
             // 
             // btnKaydet
             // 
