@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonelTakip.Modeller
 {
-    public class Personel : object
+    public class Personel
     {
         private int cocukSayisi;
         public int Id { get; private set; }
@@ -23,6 +23,8 @@ namespace PersonelTakip.Modeller
             {
                 if (value < 0)
                     throw new Exception("Çocuk sayısı geçerli değil!");
+                
+                cocukSayisi = value;
             }
         }
         public bool AskerlikDurumu { get; set; }

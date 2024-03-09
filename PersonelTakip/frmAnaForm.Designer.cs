@@ -415,7 +415,7 @@
             btnGuncelle.Name = "btnGuncelle";
             btnGuncelle.Size = new Size(151, 56);
             btnGuncelle.TabIndex = 14;
-            btnGuncelle.Text = "Güncelle";
+            btnGuncelle.Text = "Ekle";
             btnGuncelle.UseVisualStyleBackColor = false;
             btnGuncelle.Click += btnGuncelle_Click;
             // 
@@ -456,9 +456,9 @@
             lblKayitBilgi.ForeColor = Color.Tomato;
             lblKayitBilgi.Location = new Point(147, 141);
             lblKayitBilgi.Name = "lblKayitBilgi";
-            lblKayitBilgi.Size = new Size(76, 28);
+            lblKayitBilgi.Size = new Size(96, 28);
             lblKayitBilgi.TabIndex = 19;
-            lblKayitBilgi.Text = "label12";
+            lblKayitBilgi.Text = "Yeni Kayıt";
             // 
             // frmAnaForm
             // 
