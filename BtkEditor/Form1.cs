@@ -13,10 +13,10 @@ namespace BtkEditor
             //Burada kullanýcýdan bir cevap bekler
             //Cevap gelene kadar bekler
 
-            if(cevap == DialogResult.OK)
+            if (cevap == DialogResult.OK)
             {
                 string secilenKlasor = folderBrowserDialog1.SelectedPath;
-                
+
                 OpenFolder(secilenKlasor);
             }
         }
@@ -31,14 +31,14 @@ namespace BtkEditor
 
         void OpenSubFolder(TreeNode parent, string path)
         {
-            string[] klasorler =  Directory.GetDirectories(path);
-            string[] dosyalar = Directory.GetFiles(path);
+            string[] klasorler = Directory.GetDirectories(path);
+            string[] dosyalar = Directory.GetFiles(path,"*.jpg");
 
-            foreach(string s in klasorler)
+            foreach (string s in klasorler)
             {
                 string klasorAdi = Path.GetFileName(s);
 
-                parent.Nodes.Add("", klasorAdi, 0,0);
+                parent.Nodes.Add("", klasorAdi, 0, 0);
             }
 
             foreach (string s in dosyalar)
@@ -47,6 +47,19 @@ namespace BtkEditor
 
                 parent.Nodes.Add("", dosyaAdi, 1, 1);
             }
+        }
+        int top = 10;
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            TextBox yeni  = new TextBox();
+            tabPage1.Controls.Add(yeni);
+            yeni.Width = 100;
+            yeni.Height = 20;
+            yeni.Left = 10;
+            yeni.Top = top;
+            top += 30;
+
         }
     }
 }
