@@ -125,6 +125,7 @@
             btnKursEkle.TabIndex = 8;
             btnKursEkle.Text = "Kurs Ekle";
             btnKursEkle.UseVisualStyleBackColor = true;
+            btnKursEkle.Click += btnKursEkle_Click;
             // 
             // Form1
             // 

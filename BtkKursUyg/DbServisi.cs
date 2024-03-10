@@ -101,6 +101,32 @@ namespace BtkKursUyg
             return new List<TblKurslar>();
         }
     
+
+        public static TblKurslar KursEkle(TblKurslar yeni)
+        {
+            if(Baglan() )
+            {
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "INSERT INTO TblKurslar (KursAdi, KursTarihi,EgitmenBilgisi)" +
+     " VALUES (@p1, @p2, @p3); SELECT @@IDENTITY";
+
+                cmd.Parameters.AddWithValue("p1", yeni.KursAdi);
+                cmd.Parameters.AddWithValue("p2", yeni.KursTarihi);
+                cmd.Parameters.AddWithValue("p3", yeni.EgitmenBilgisi);
+
+                int id =  Convert.ToInt32(cmd.ExecuteScalar());
+
+                yeni.Id = id; 
+
+                return yeni;
+            }
+            else
+            {
+                MessageBox.Show("Bağlantı yok");
+            }
+
+            return null;
+        }
     
     }
 }

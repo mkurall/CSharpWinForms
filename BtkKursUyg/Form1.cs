@@ -28,5 +28,17 @@ namespace BtkKursUyg
             lbKurslar.ValueMember = "Id";//iliþkiyi saðlayan anahtar ne
 
         }
+
+        private void btnKursEkle_Click(object sender, EventArgs e)
+        {
+            TblKurslar kurs = DbServisi.KursEkle(new TblKurslar()
+            {
+                KursAdi = txtKursAd.Text,
+                KursTarihi = dtKursTarih.Value,
+                EgitmenBilgisi = txtKursEgitmen.Text
+            });
+
+
+        }
     }
 }
