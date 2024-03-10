@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonelTakip", "PersonelTakip\PersonelTakip.csproj", "{BF40793A-6B9D-4318-A88E-0461F49F5F6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BtkControls", "BtkControls\BtkControls.csproj", "{AB3CD75D-EF46-4604-A51E-62C725BB62D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BtkControls", "BtkControls\BtkControls.csproj", "{AB3CD75D-EF46-4604-A51E-62C725BB62D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BtkEditor", "BtkEditor\BtkEditor.csproj", "{8313372C-E6DF-4C24-BD0F-B0FD095FF03B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AB3CD75D-EF46-4604-A51E-62C725BB62D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB3CD75D-EF46-4604-A51E-62C725BB62D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB3CD75D-EF46-4604-A51E-62C725BB62D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8313372C-E6DF-4C24-BD0F-B0FD095FF03B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8313372C-E6DF-4C24-BD0F-B0FD095FF03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8313372C-E6DF-4C24-BD0F-B0FD095FF03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8313372C-E6DF-4C24-BD0F-B0FD095FF03B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
