@@ -14,12 +14,14 @@ namespace BtkKursUyg
 
             /*Önce Login formu gelsin*/
             frmLogin frmLogin = new frmLogin();
-            
-            frmLogin.ShowDialog();
 
-            /****Uygulamanýn ana formunu açar**/
+            if (frmLogin.ShowDialog() == DialogResult.OK)//bunu sorgu sonucunda ben gönderdim
+            {
 
-            Application.Run(new Form1());
+                /****Uygulamanýn ana formunu açar**/
+
+                Application.Run(new Form1());
+            }
         }
     }
 }

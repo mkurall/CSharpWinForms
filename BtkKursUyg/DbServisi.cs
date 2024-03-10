@@ -14,41 +14,48 @@ namespace BtkKursUyg
 
         static bool Baglan()
         {
+            //zaten bağlı isen tekrar bağlanma
             if (connection.State == ConnectionState.Closed)
-            {
+            { 
                 connection.Open();
             }
 
-            return connection.State == ConnectionState.Open;
+            if (connection.State == ConnectionState.Open)
+                return true;//bağlantı var ise true dön
+            else 
+                return false;
         }
 
         public static TblKullanicilar OturumAc(string eposta, string parola)
         {
-            if(Baglan())
+            if(Baglan()) //Önce bağlan ve garanti olsun
             {
-                //Bağlantı var demektir
+                //Bağlantı var demektir sql sorgusunu oluştur
                 SqlCommand cmd = connection.CreateCommand();
+
                 cmd.CommandText = "SELECT Id, Ad, Soyad, EPosta FROM TblKullanicilar " +
                     "WHERE EPosta = @p1 and Parola = @p2";
 
+                //paramettreleri gir
                 cmd.Parameters.AddWithValue("p1", eposta);
                 cmd.Parameters.AddWithValue("p2", parola);
-                
+
                 //Sorguyu çalıştırında verileri okumak için reader döndü
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if(reader.Read())
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    TblKullanicilar k = new TblKullanicilar();
-                    
-                    k.Id = Convert.ToInt32(reader["Id"]);
-                    k.Ad = reader["Ad"].ToString();
-                    k.Soyad = reader["Soyad"].ToString();
-                    k.EPosta = reader["EPosta"].ToString();
+                    if (reader.Read())//okumaya başla
+                    {
+                        TblKullanicilar k = new TblKullanicilar();
 
-                    return k;
+                        k.Id = Convert.ToInt32(reader["Id"]);
+                        k.Ad = reader["Ad"].ToString();
+                        k.Soyad = reader["Soyad"].ToString();
+                        k.EPosta = reader["EPosta"].ToString();
+
+                        return k;
+                    }
                 }
-
+               
             }
             else
             {
@@ -56,7 +63,7 @@ namespace BtkKursUyg
                 return null;
             }
             
-            return null;
+            return null;//kullanıcı bulunamadı
         }
     }
 }

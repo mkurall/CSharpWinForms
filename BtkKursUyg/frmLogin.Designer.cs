@@ -57,6 +57,7 @@
             txtEPosta.Name = "txtEPosta";
             txtEPosta.Size = new Size(314, 38);
             txtEPosta.TabIndex = 1;
+            txtEPosta.Text = "mustafakural@outlook.com";
             // 
             // label2
             // 
@@ -75,6 +76,7 @@
             txtParola.Name = "txtParola";
             txtParola.Size = new Size(314, 38);
             txtParola.TabIndex = 1;
+            txtParola.Text = "1234";
             // 
             // btnOturumAc
             // 
