@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip1 = new MenuStrip();
             dosyaToolStripMenuItem = new ToolStripMenuItem();
@@ -45,13 +46,15 @@
             yardımToolStripMenuItem = new ToolStripMenuItem();
             programHakkındaToolStripMenuItem = new ToolStripMenuItem();
             splitContainer1 = new SplitContainer();
+            tvDosyaAgaci = new TreeView();
             toolStrip1 = new ToolStrip();
-            toolStripButton1 = new ToolStripButton();
+            tsbKlasorAc = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
             toolStripButton4 = new ToolStripButton();
             label1 = new Label();
-            treeView1 = new TreeView();
+            folderBrowserDialog1 = new FolderBrowserDialog();
+            ımageList1 = new ImageList(components);
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -162,31 +165,43 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(treeView1);
+            splitContainer1.Panel1.Controls.Add(tvDosyaAgaci);
             splitContainer1.Panel1.Controls.Add(toolStrip1);
             splitContainer1.Panel1.Controls.Add(label1);
             splitContainer1.Size = new Size(800, 484);
             splitContainer1.SplitterDistance = 289;
             splitContainer1.TabIndex = 1;
             // 
+            // tvDosyaAgaci
+            // 
+            tvDosyaAgaci.Dock = DockStyle.Fill;
+            tvDosyaAgaci.ImageIndex = 0;
+            tvDosyaAgaci.ImageList = ımageList1;
+            tvDosyaAgaci.Location = new Point(0, 72);
+            tvDosyaAgaci.Name = "tvDosyaAgaci";
+            tvDosyaAgaci.SelectedImageIndex = 0;
+            tvDosyaAgaci.Size = new Size(289, 412);
+            tvDosyaAgaci.TabIndex = 2;
+            // 
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(32, 32);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3, toolStripButton4 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbKlasorAc, toolStripButton2, toolStripButton3, toolStripButton4 });
             toolStrip1.Location = new Point(0, 33);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(289, 39);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tsbKlasorAc
             // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(36, 36);
-            toolStripButton1.Text = "toolStripButton1";
+            tsbKlasorAc.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            tsbKlasorAc.Image = (Image)resources.GetObject("tsbKlasorAc.Image");
+            tsbKlasorAc.ImageTransparentColor = Color.Magenta;
+            tsbKlasorAc.Name = "tsbKlasorAc";
+            tsbKlasorAc.Size = new Size(36, 36);
+            tsbKlasorAc.Text = "toolStripButton1";
+            tsbKlasorAc.Click += tsbKlasorAc_Click;
             // 
             // toolStripButton2
             // 
@@ -229,13 +244,13 @@
             label1.TabIndex = 0;
             label1.Text = "DOSYA GEZGİNİ";
             // 
-            // treeView1
+            // ımageList1
             // 
-            treeView1.Dock = DockStyle.Fill;
-            treeView1.Location = new Point(0, 72);
-            treeView1.Name = "treeView1";
-            treeView1.Size = new Size(289, 412);
-            treeView1.TabIndex = 2;
+            ımageList1.ColorDepth = ColorDepth.Depth8Bit;
+            ımageList1.ImageStream = (ImageListStreamer)resources.GetObject("ımageList1.ImageStream");
+            ımageList1.TransparentColor = Color.Transparent;
+            ımageList1.Images.SetKeyName(0, "folder.png");
+            ımageList1.Images.SetKeyName(1, "google-docs.png");
             // 
             // Form1
             // 
@@ -278,11 +293,13 @@
         private ToolStripMenuItem programHakkındaToolStripMenuItem;
         private SplitContainer splitContainer1;
         private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
+        private ToolStripButton tsbKlasorAc;
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButton3;
         private ToolStripButton toolStripButton4;
         private Label label1;
-        private TreeView treeView1;
+        private TreeView tvDosyaAgaci;
+        private FolderBrowserDialog folderBrowserDialog1;
+        private ImageList ımageList1;
     }
 }
