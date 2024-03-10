@@ -20,19 +20,27 @@ namespace BtkKursUyg
 
         private void btnOturumAc_Click(object sender, EventArgs e)
         {
-            TblKullanicilar kullanici = 
+            TblKullanicilar kullanici =
                 DbServisi.OturumAc(txtEPosta.Text, txtParola.Text);
 
-            if(kullanici != null )
+            if (kullanici != null)
             {
                 //Login Dialog penceresini olumlu bir şekilde kapatır
-                DialogResult =  DialogResult.OK;
+                DialogResult = DialogResult.OK;
             }
             else
             {
                 MessageBox.Show("Kullanıcı bulunmadı");
             }
 
+        }
+
+        private void txtParola_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnOturumAc_Click(sender, e);
+            }
         }
     }
 }

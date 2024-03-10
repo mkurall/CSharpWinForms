@@ -3,6 +3,7 @@
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Reflection.Metadata.Ecma335;
 
 namespace BtkKursUyg
 {
@@ -65,5 +66,41 @@ namespace BtkKursUyg
             
             return null;//kullanıcı bulunamadı
         }
+    
+        public static List<TblKurslar> KursListesiniGetir()
+        {
+            if(Baglan())
+            {
+                SqlCommand cmd = connection.CreateCommand();
+
+                cmd.CommandText = "SELECT * FROM TblKurslar";
+
+                using(SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    List<TblKurslar> liste = new List<TblKurslar>();
+
+                    while(reader.Read())
+                    {
+                        TblKurslar k = new TblKurslar();
+                        k.Id = Convert.ToInt32(reader["Id"]);
+                        k.KursAdi = reader["KursAdi"].ToString();
+                        k.KursTarihi = DateTime.Parse(reader["KursTarihi"].ToString());
+                        k.EgitmenBilgisi = reader["EgitmenBilgisi"].ToString();
+
+                        liste.Add(k);//Her çektiğim satırı listeye ekledim
+                    }
+
+                    return liste;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bağlantı yok!");
+            }
+
+            return new List<TblKurslar>();
+        }
+    
+    
     }
 }

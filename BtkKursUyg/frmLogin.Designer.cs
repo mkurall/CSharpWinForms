@@ -77,6 +77,7 @@
             txtParola.Size = new Size(314, 38);
             txtParola.TabIndex = 1;
             txtParola.Text = "1234";
+            txtParola.KeyDown += txtParola_KeyDown;
             // 
             // btnOturumAc
             // 
