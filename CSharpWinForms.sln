@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BtkControls", "BtkControls\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BtkEditor", "BtkEditor\BtkEditor.csproj", "{8313372C-E6DF-4C24-BD0F-B0FD095FF03B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BtkKursUyg", "BtkKursUyg\BtkKursUyg.csproj", "{4B8D5B59-CED1-4F92-89DC-D611BC9CDDA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BtkKursUyg", "BtkKursUyg\BtkKursUyg.csproj", "{4B8D5B59-CED1-4F92-89DC-D611BC9CDDA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFTest", "EFTest\EFTest.csproj", "{F3AC36C9-C823-4F90-97AE-19F83DF82A00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4B8D5B59-CED1-4F92-89DC-D611BC9CDDA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B8D5B59-CED1-4F92-89DC-D611BC9CDDA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B8D5B59-CED1-4F92-89DC-D611BC9CDDA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3AC36C9-C823-4F90-97AE-19F83DF82A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3AC36C9-C823-4F90-97AE-19F83DF82A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3AC36C9-C823-4F90-97AE-19F83DF82A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3AC36C9-C823-4F90-97AE-19F83DF82A00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -82,6 +82,7 @@ namespace BtkKursUyg
                     while(reader.Read())
                     {
                         TblKurslar k = new TblKurslar();
+
                         k.Id = Convert.ToInt32(reader["Id"]);
                         k.KursAdi = reader["KursAdi"].ToString();
                         k.KursTarihi = DateTime.Parse(reader["KursTarihi"].ToString());

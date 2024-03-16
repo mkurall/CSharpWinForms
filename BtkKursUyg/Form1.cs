@@ -38,7 +38,6 @@ namespace BtkKursUyg
                 EgitmenBilgisi = txtKursEgitmen.Text
             });
 
-
         }
     }
 }
