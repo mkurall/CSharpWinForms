@@ -20,5 +20,7 @@ namespace EFTest2.Models
         public int Nu { get; set; }
 
         public int? SinifId { get; set; }
+
+        public Sinif Sinifi { get; set; }
     }
 }

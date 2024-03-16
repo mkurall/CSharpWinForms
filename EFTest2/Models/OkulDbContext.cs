@@ -23,6 +23,11 @@ namespace EFTest2.Models
             modelBuilder.Entity<Sinif>()
                 .Property(x => x.Ad)
                 .HasMaxLength(15);
+
+            modelBuilder.Entity<Sinif>()
+                .HasMany(e => e.Ogrenciler)
+                .WithOne(e => e.Sinifi)
+                .IsRequired(false);
         }
 
         public virtual DbSet<Sinif> Siniflar { get; set; }

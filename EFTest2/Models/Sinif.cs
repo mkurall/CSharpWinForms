@@ -12,5 +12,6 @@ namespace EFTest2.Models
         public int Id { get; set; }
         public string Ad { get; set; }
         public int? Seviye { get; set; }
+        public List<Ogrenci> Ogrenciler { get; set; } = new List<Ogrenci>();
     }
 }
