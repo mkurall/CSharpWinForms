@@ -36,6 +36,13 @@
             dgvOgrenciler = new DataGridView();
             btnSiniflariGetir = new Button();
             btnOgrencileriGetir = new Button();
+            txtNu = new TextBox();
+            btnOgrenciEkle = new Button();
+            label3 = new Label();
+            txtAd = new TextBox();
+            label4 = new Label();
+            txtSoyad = new TextBox();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvOgrenciler).BeginInit();
             SuspendLayout();
             // 
@@ -71,6 +78,7 @@
             btnEkle.TabIndex = 3;
             btnEkle.Text = "Ekle";
             btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.Click += btnEkle_Click;
             // 
             // label2
             // 
@@ -99,6 +107,7 @@
             btnSiniflariGetir.TabIndex = 6;
             btnSiniflariGetir.Text = "Sınıfları Getir";
             btnSiniflariGetir.UseVisualStyleBackColor = true;
+            btnSiniflariGetir.Click += btnSiniflariGetir_Click;
             // 
             // btnOgrencileriGetir
             // 
@@ -108,16 +117,82 @@
             btnOgrencileriGetir.TabIndex = 6;
             btnOgrencileriGetir.Text = "Öğrencileri Getir";
             btnOgrencileriGetir.UseVisualStyleBackColor = true;
+            btnOgrencileriGetir.Click += btnOgrencileriGetir_Click;
+            // 
+            // txtNu
+            // 
+            txtNu.Location = new Point(262, 422);
+            txtNu.Name = "txtNu";
+            txtNu.Size = new Size(125, 27);
+            txtNu.TabIndex = 2;
+            // 
+            // btnOgrenciEkle
+            // 
+            btnOgrenciEkle.Location = new Point(680, 464);
+            btnOgrenciEkle.Name = "btnOgrenciEkle";
+            btnOgrenciEkle.Size = new Size(94, 29);
+            btnOgrenciEkle.TabIndex = 3;
+            btnOgrenciEkle.Text = "Ekle";
+            btnOgrenciEkle.UseVisualStyleBackColor = true;
+            btnOgrenciEkle.Click += btnOgrenciEkle_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(270, 399);
+            label3.Name = "label3";
+            label3.Size = new Size(62, 20);
+            label3.TabIndex = 7;
+            label3.Text = "Numara";
+            // 
+            // txtAd
+            // 
+            txtAd.Location = new Point(423, 422);
+            txtAd.Name = "txtAd";
+            txtAd.Size = new Size(164, 27);
+            txtAd.TabIndex = 2;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(431, 399);
+            label4.Name = "label4";
+            label4.Size = new Size(28, 20);
+            label4.TabIndex = 7;
+            label4.Text = "Ad";
+            // 
+            // txtSoyad
+            // 
+            txtSoyad.Location = new Point(601, 422);
+            txtSoyad.Name = "txtSoyad";
+            txtSoyad.Size = new Size(173, 27);
+            txtSoyad.TabIndex = 2;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(601, 399);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 20);
+            label5.TabIndex = 7;
+            label5.Text = "Soyad";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(821, 599);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
             Controls.Add(btnOgrencileriGetir);
             Controls.Add(btnSiniflariGetir);
             Controls.Add(dgvOgrenciler);
             Controls.Add(label2);
+            Controls.Add(btnOgrenciEkle);
+            Controls.Add(txtSoyad);
+            Controls.Add(txtAd);
+            Controls.Add(txtNu);
             Controls.Add(btnEkle);
             Controls.Add(txtSinif);
             Controls.Add(cbSiniflar);
@@ -139,5 +214,12 @@
         private DataGridView dgvOgrenciler;
         private Button btnSiniflariGetir;
         private Button btnOgrencileriGetir;
+        private TextBox txtNu;
+        private Button btnOgrenciEkle;
+        private Label label3;
+        private TextBox txtAd;
+        private Label label4;
+        private TextBox txtSoyad;
+        private Label label5;
     }
 }
