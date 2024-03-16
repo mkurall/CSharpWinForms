@@ -14,8 +14,8 @@ namespace EFTest2
         {
             using (OkulDbContext ctx = new OkulDbContext())
             {
-                var liste = ctx.Siniflar.Include(x=>x.Ogrenciler).ToList();
-                //yuakrýda include ekledim
+                var liste = ctx.Siniflar.Include(x => x.Ogrenciler).ToList();
+                //yukrýda include ekledim
 
                 cbSiniflar.DataSource = liste;
                 cbSiniflar.DisplayMember = "Ad";
@@ -47,7 +47,7 @@ namespace EFTest2
             using (OkulDbContext ctx = new OkulDbContext())
             {
                 int snfId = Convert.ToInt32(cbSiniflar.SelectedValue);
-                
+
                 Sinif sinif = ctx.Siniflar.FirstOrDefault(x => x.Id == snfId);
 
                 Ogrenci yeniOgrenci = new Ogrenci
@@ -62,6 +62,57 @@ namespace EFTest2
                 ctx.SaveChanges();
             }
 
+        }
+
+        private void btnKlupleriGetir_Click(object sender, EventArgs e)
+        {
+            using (OkulDbContext ctx = new OkulDbContext())
+            {
+                var liste = ctx.Klupler.Include(x => x.Ogrenciler).ToList();
+
+                cbKlupler.DataSource = liste;
+                cbKlupler.DisplayMember = "Ad";
+                cbKlupler.ValueMember = "Id";
+
+            }
+        }
+
+        private void btnKlupEkle_Click(object sender, EventArgs e)
+        {
+            using (OkulDbContext ctx = new OkulDbContext())
+            {
+                Klup yeni = new Klup();
+                yeni.Ad = txtKlupAdi.Text;
+
+                ctx.Klupler.Add(yeni);
+                ctx.SaveChanges();
+            }
+        }
+
+        private void btnKlubeEkle_Click(object sender, EventArgs e)
+        {
+            Ogrenci ogr = dgvOgrenciler.CurrentRow.DataBoundItem as Ogrenci;
+
+            if (ogr != null)
+            {
+                int klpId = Convert.ToInt32(cbKlupler.SelectedValue);
+
+                using (OkulDbContext ctx = new OkulDbContext())
+                {
+                    Klup klup = ctx.Klupler.FirstOrDefault(x => x.Id == klpId);
+
+                    klup.Ogrenciler.Add(ogr);
+
+                    ctx.SaveChanges();
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Klup klup = (Klup)cbKlupler.SelectedItem;
+
+            dgvOgrenciler.DataSource = klup.Ogrenciler;
         }
     }
 }

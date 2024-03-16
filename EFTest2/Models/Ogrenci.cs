@@ -22,5 +22,7 @@ namespace EFTest2.Models
         public int? SinifId { get; set; }
 
         public Sinif Sinifi { get; set; }
+
+        public List<Klup> Klupler { get; set; } = new List<Klup>();
     }
 }

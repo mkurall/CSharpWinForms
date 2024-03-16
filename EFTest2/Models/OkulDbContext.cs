@@ -27,12 +27,18 @@ namespace EFTest2.Models
             modelBuilder.Entity<Sinif>()
                 .HasMany(e => e.Ogrenciler)
                 .WithOne(e => e.Sinifi)
+                
                 .IsRequired(false);
+
+            modelBuilder.Entity<Ogrenci>()
+                .HasMany(e => e.Klupler)
+                .WithMany(e => e.Ogrenciler);
         }
 
         public virtual DbSet<Sinif> Siniflar { get; set; }
 
         public virtual DbSet<Ogrenci> Ogrenciler { get; set; }
+        public virtual DbSet<Klup> Klupler { get; set; }
     }
 }
 
